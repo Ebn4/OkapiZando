@@ -134,7 +134,7 @@ class _SignupState extends State<Signup> {
                           style: TextStyle(color: Colors.blue),
                         ),
                         icon: Image.asset(
-                          'image/icons8-google-48.png',
+                          'assets/images/icons8-google-48.png',
                           width: 20,
                           height: 20,
                         ),
