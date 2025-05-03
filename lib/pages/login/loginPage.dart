@@ -23,7 +23,7 @@ class _SignupState extends State<Signup> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('image/Okapizando.png', width: 250, height: 200),
+              Image.asset('assets/images/Okapizando.png', width: 250, height: 200),
               SizedBox(height: 5),
               Text(
                 'Log in',
