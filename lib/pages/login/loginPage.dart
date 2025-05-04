@@ -26,7 +26,7 @@ class _SignupState extends State<Signup> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
                   SizedBox(height: 5),
