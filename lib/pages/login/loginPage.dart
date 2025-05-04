@@ -26,9 +26,9 @@ class _SignupState extends State<Signup> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
+                  Image.asset('assets/images/Okapizando.png', width: 400, height: 100),
                   SizedBox(height: 5),
                   Text(
                     'Log in',
@@ -108,10 +108,11 @@ class _SignupState extends State<Signup> {
                         SizedBox(height: 25),
                         SizedBox(
                           width: 300,
+                          height: 55,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)
+                                borderRadius: BorderRadius.circular(20)
                               ),
                               backgroundColor: Colors.blue,
                             ),
@@ -123,7 +124,7 @@ class _SignupState extends State<Signup> {
                             },
                             child: Text(
                               'Log in',
-                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 10),
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
                             ),
                           ),
                         ),
@@ -132,11 +133,21 @@ class _SignupState extends State<Signup> {
                         SizedBox(height: 15),
                         SizedBox(
                           width: 250,
+                          height: 55,
                           child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              side: BorderSide(
+                                color: Colors.blue,
+                                width: 3,
+                              ),
+                            ),
                             onPressed: () {},
                             label: Text(
                               'Login with',
-                              style: TextStyle(color: Colors.blue),
+                              style: TextStyle(color: Colors.blue,fontSize: 20),
                             ),
                             icon: Image.asset(
                               'assets/images/icons8-google-48.png',
@@ -145,7 +156,7 @@ class _SignupState extends State<Signup> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 50,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
