@@ -26,15 +26,15 @@ class _SignupState extends State<Signup> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/Okapizando.png', width: 250, height: 200),
+                  Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
                   SizedBox(height: 5),
                   Text(
                     'Log in',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.blue),
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 100),
                   Form(
                     key: _formKey,
                     child: Column(
