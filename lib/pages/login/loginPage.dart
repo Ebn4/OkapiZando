@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -11,6 +12,7 @@ class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+
 
   bool valeur = false;
   @override
@@ -31,7 +33,7 @@ class _SignupState extends State<Signup> {
                   Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
                   SizedBox(height: 5),
                   Text(
-                    'Log in',
+                    'Connexion',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
                   ),
                   SizedBox(height: 100),
@@ -82,7 +84,7 @@ class _SignupState extends State<Signup> {
                             Row(
                               children: [
                                 Text(
-                                  'Remember me',
+                                  'Se souvenir de moi',
                                   style: TextStyle(color: Colors.blue),
                                 ),
                                 SizedBox(width: 3),
@@ -99,7 +101,7 @@ class _SignupState extends State<Signup> {
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                'Forgotten password? ',
+                                'Mot de passe oublié?',
                                 style: TextStyle(color: Colors.blue),
                               ),
                             ),
@@ -123,7 +125,7 @@ class _SignupState extends State<Signup> {
                               }
                             },
                             child: Text(
-                              'Log in',
+                              'Se connecter',
                               style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
                             ),
                           ),
@@ -160,8 +162,13 @@ class _SignupState extends State<Signup> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              Text('Don\'t have an account?'),
-                              GestureDetector(child: Text('Sign Up',style: TextStyle(color: Colors.blue),)),
+                              Text('Vous n\'avez pas de compte?'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Signinpage()));
+                                },
+                                child: Text('S\'inscrire',style: TextStyle(color: Colors.blue),)
+                              ),
                           ],
                         ),
                       ],
