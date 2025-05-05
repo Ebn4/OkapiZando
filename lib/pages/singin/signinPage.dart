@@ -11,6 +11,9 @@ class _SigninpageState extends State<Signinpage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  final _phoneNumber = TextEditingController();
 
   bool valeur = false;
   @override
@@ -57,7 +60,7 @@ class _SigninpageState extends State<Signinpage> {
           
                         SizedBox(height: 16),
                         TextFormField(
-                          controller: _emailController,
+                          controller: _phoneNumber,
                           decoration: InputDecoration(
                             labelText: 'Numero de telephone',
                             border: OutlineInputBorder(
@@ -67,10 +70,7 @@ class _SigninpageState extends State<Signinpage> {
                           keyboardType: TextInputType.phone,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Veuillez entrer votre email';
-                            }
-                            if (!value.contains('@')) {
-                              return 'Veuillez entrer un email valide';
+                              return 'Veuillez entrer votre numero de telephone';
                             }
                             return null;
                           },
@@ -118,9 +118,9 @@ class _SigninpageState extends State<Signinpage> {
                         ),
                         SizedBox(height: 16,),
                         TextFormField(
-                          controller: _emailController,
+                          controller: _passwordController,
                           decoration: InputDecoration(
-                             suffixIcon: Icon(Icons.password),
+                            suffixIcon: Icon(Icons.password),
                             labelText: 'Mot de passe',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -129,17 +129,14 @@ class _SigninpageState extends State<Signinpage> {
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Veuillez entrer votre email';
-                            }
-                            if (!value.contains('@')) {
-                              return 'Veuillez entrer un email valide';
+                              return 'Veuillez entrer votre mot de passe';
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 16,),
                         TextFormField(
-                          controller: _emailController,
+                          controller: _confirmPasswordController,
                           decoration: InputDecoration(
                             suffixIcon: Icon(Icons.password),
                             labelText: 'Confirmation de mot de passe',
@@ -150,10 +147,7 @@ class _SigninpageState extends State<Signinpage> {
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Veuillez entrer votre email';
-                            }
-                            if (!value.contains('@')) {
-                              return 'Veuillez entrer un email valide';
+                              return 'Veuillez confirmer votre mot de passe';
                             }
                             return null;
                           },
