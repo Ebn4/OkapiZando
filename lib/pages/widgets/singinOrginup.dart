@@ -11,13 +11,14 @@ class Singinorginup extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
                 'assets/images/Okapizando.png',
                 width: 400,
                 height: 200,
               ),
+              SizedBox(height: 150),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 9, 116, 204),
