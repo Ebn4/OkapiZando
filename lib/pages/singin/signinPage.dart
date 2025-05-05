@@ -42,7 +42,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _nameController,
                           decoration: InputDecoration(
-                            labelText: 'Nom',
+                            labelText: 'Username',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -59,7 +59,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: 'Phone number',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -79,7 +79,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: 'Date of birth',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -100,7 +100,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: 'Adress',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -120,7 +120,8 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                             suffixIcon: Icon(Icons.password),
+                            labelText: 'Password',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -140,7 +141,8 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            suffixIcon: Icon(Icons.password),
+                            labelText: 'Confirm your password',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
