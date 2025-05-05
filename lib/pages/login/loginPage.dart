@@ -10,9 +10,11 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
+  final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
 
+  // le champ pour cacher le mot de passe
+  var _obscureText = true;
 
   bool valeur = false;
   @override
@@ -30,34 +32,25 @@ class _SignupState extends State<Signup> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
+                  Image.asset(
+                    'assets/images/Okapizando.png',
+                    width: 400,
+                    height: 200,
+                  ),
                   SizedBox(height: 5),
                   Text(
                     'Connexion',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
                   ),
                   SizedBox(height: 100),
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        TextFormField(
-                          controller: _nameController,
-                          decoration: InputDecoration(
-                            labelText: 'Nom',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Veuillez entrer votre nom';
-                            }
-                            return null;
-                          },
-                        ),
-          
-                        SizedBox(height: 16),
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
@@ -73,6 +66,33 @@ class _SignupState extends State<Signup> {
                             }
                             if (!value.contains('@')) {
                               return 'Veuillez entrer un email valide';
+                            }
+                            return null;
+                          },
+                        ),
+
+                        SizedBox(height: 16),
+                        TextFormField(
+                          obscureText: _obscureText,
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: 'Mot de passe',
+                            suffixIcon: IconButton(
+                              onPressed: (){
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
+                              icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Veuillez entrer votre mot de passe';
                             }
                             return null;
                           },
@@ -114,19 +134,23 @@ class _SignupState extends State<Signup> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)
+                                borderRadius: BorderRadius.circular(20),
                               ),
                               backgroundColor: Colors.blue,
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                print('Nom: ${_nameController.text}');
-                                print('Email: ${_emailController.text}');
+                                print('Nom: ${_emailController.text}');
+                                print('Email: ${_passwordController.text}');
                               }
                             },
                             child: Text(
                               'Se connecter',
-                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
@@ -141,15 +165,15 @@ class _SignupState extends State<Signup> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              side: BorderSide(
-                                color: Colors.blue,
-                                width: 3,
-                              ),
+                              side: BorderSide(color: Colors.blue, width: 3),
                             ),
                             onPressed: () {},
                             label: Text(
                               'Login with',
-                              style: TextStyle(color: Colors.blue,fontSize: 20),
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,
+                              ),
                             ),
                             icon: Image.asset(
                               'assets/images/icons8-google-48.png',
@@ -158,17 +182,25 @@ class _SignupState extends State<Signup> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 50,),
+                        SizedBox(height: 50),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              Text('Vous n\'avez pas de compte?'),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Signinpage()));
-                                },
-                                child: Text('S\'inscrire',style: TextStyle(color: Colors.blue),)
+                            Text('Vous n\'avez pas de compte?'),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Signinpage(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'S\'inscrire',
+                                style: TextStyle(color: Colors.blue),
                               ),
+                            ),
                           ],
                         ),
                       ],
