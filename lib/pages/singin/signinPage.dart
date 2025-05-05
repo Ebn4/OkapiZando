@@ -31,7 +31,7 @@ class _SigninpageState extends State<Signinpage> {
                   Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
                   SizedBox(height: 5),
                   Text(
-                    'Signin',
+                    'Inscription',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
                   ),
                   SizedBox(height: 100),
@@ -42,7 +42,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _nameController,
                           decoration: InputDecoration(
-                            labelText: 'Username',
+                            labelText: 'Nom',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -59,12 +59,12 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Phone number',
+                            labelText: 'Numero de telephone',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Veuillez entrer votre email';
@@ -79,7 +79,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Date of birth',
+                            labelText: 'Date de naissance',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -100,7 +100,7 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Adress',
+                            labelText: 'Email',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -121,7 +121,7 @@ class _SigninpageState extends State<Signinpage> {
                           controller: _emailController,
                           decoration: InputDecoration(
                              suffixIcon: Icon(Icons.password),
-                            labelText: 'Password',
+                            labelText: 'Mot de passe',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -142,7 +142,7 @@ class _SigninpageState extends State<Signinpage> {
                           controller: _emailController,
                           decoration: InputDecoration(
                             suffixIcon: Icon(Icons.password),
-                            labelText: 'Confirm your password',
+                            labelText: 'Confirmation de mot de passe',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -176,7 +176,7 @@ class _SigninpageState extends State<Signinpage> {
                               }
                             },
                             child: Text(
-                              'Signin',
+                              'S\'inscrire',
                               style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
                             ),
                           ),
