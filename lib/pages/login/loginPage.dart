@@ -134,7 +134,7 @@ class _SignupState extends State<Signup> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               backgroundColor: Colors.blue,
                             ),
@@ -182,7 +182,7 @@ class _SignupState extends State<Signup> {
                           child: ElevatedButton.icon(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               side: BorderSide(color: Colors.blue, width: 3),
                             ),
