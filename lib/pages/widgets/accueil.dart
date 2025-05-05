@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:okapi_zando_mobile/pages/login/loginPage.dart';
+
+import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 
 class Accueil extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _AccueilState extends State<Accueil> {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Signup()),
+        MaterialPageRoute(builder: (context) => Signinpage()),
       );
     });
   }
