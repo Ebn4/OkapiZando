@@ -160,7 +160,7 @@ class _SigninpageState extends State<Signinpage> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)
+                                borderRadius: BorderRadius.circular(10)
                               ),
                               backgroundColor: Colors.blue,
                             ),
@@ -203,7 +203,7 @@ class _SigninpageState extends State<Signinpage> {
                           child: ElevatedButton.icon(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               side: BorderSide(
                                 color: Colors.blue,
