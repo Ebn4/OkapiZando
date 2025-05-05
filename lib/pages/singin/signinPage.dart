@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:okapi_zando_mobile/pages/login/loginPage.dart';
 
 class Signinpage extends StatefulWidget {
   const Signinpage({super.key});
@@ -14,6 +15,11 @@ class _SigninpageState extends State<Signinpage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   final _phoneNumber = TextEditingController();
+
+  // Le champ de mot de passe est masqué par défaut
+  bool _obscurePassword = true;
+
+
 
   bool valeur = false;
   @override
@@ -79,27 +85,6 @@ class _SigninpageState extends State<Signinpage> {
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Date de naissance',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Veuillez entrer votre email';
-                            }
-                            if (!value.contains('@')) {
-                              return 'Veuillez entrer un email valide';
-                            }
-                            return null;
-                          },
-                        ),
-                       
-                        SizedBox(height: 16),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: InputDecoration(
                             labelText: 'Email',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -118,9 +103,17 @@ class _SigninpageState extends State<Signinpage> {
                         ),
                         SizedBox(height: 16,),
                         TextFormField(
+                          obscureText: _obscurePassword,
                           controller: _passwordController,
                           decoration: InputDecoration(
-                            suffixIcon: Icon(Icons.password),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
+                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility,),
+                            ),
                             labelText: 'Mot de passe',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -136,9 +129,17 @@ class _SigninpageState extends State<Signinpage> {
                         ),
                         SizedBox(height: 16,),
                         TextFormField(
+                          obscureText: _obscurePassword,
                           controller: _confirmPasswordController,
                           decoration: InputDecoration(
-                            suffixIcon: Icon(Icons.password),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
+                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility,),
+                            ),
                             labelText: 'Confirmation de mot de passe',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -204,7 +205,18 @@ class _SigninpageState extends State<Signinpage> {
                           ),
                         ),
                         SizedBox(height: 50,),
-                       
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                              Text('Vous avez déjà un compte?'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
+                                },
+                                child: Text('Se connecter',style: TextStyle(color: Colors.blue),)
+                              ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
