@@ -177,7 +177,25 @@ class _SigninpageState extends State<Signinpage> {
                           ),
                         ),
                         SizedBox(height: 15),
-                        Divider(color: Colors.blue),
+                        Row(
+                          children: <Widget> [
+                            Expanded(
+                              child: Divider(
+                                color: Colors.blue,
+                                thickness: 2,
+                                endIndent: 10,
+                              ),
+                            ),
+                            Text("Ou s'inscrire avec",style: TextStyle(fontSize: 16),),
+                            Expanded(
+                              child: Divider(
+                                color: Colors.blue,
+                                thickness: 2,
+                                indent: 10,
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 15),
                         SizedBox(
                           width: 250,
@@ -194,8 +212,8 @@ class _SigninpageState extends State<Signinpage> {
                             ),
                             onPressed: () {},
                             label: Text(
-                              'Signin with',
-                              style: TextStyle(color: Colors.blue,fontSize: 20),
+                              'Google',
+                              style: TextStyle(color: Colors.blue,fontSize: 20,fontWeight: FontWeight.bold),
                             ),
                             icon: Image.asset(
                               'assets/images/icons8-google-48.png',
@@ -204,11 +222,11 @@ class _SigninpageState extends State<Signinpage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 50,),
+                        SizedBox(height: 20,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              Text('Vous avez déjà un compte?'),
+                              Text('Vous avez déjà un compte ? '),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));

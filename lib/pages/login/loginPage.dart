@@ -155,7 +155,26 @@ class _SignupState extends State<Signup> {
                           ),
                         ),
                         SizedBox(height: 15),
-                        Divider(color: Colors.blue),
+                        // La barre de séparation
+                        Row(
+                          children: <Widget> [
+                            Expanded(
+                              child: Divider(
+                                color: Colors.blue,
+                                thickness: 2,
+                                endIndent: 10,
+                              ),
+                            ),
+                            Text("Ou se connecter avec",style: TextStyle(fontSize: 16),),
+                            Expanded(
+                              child: Divider(
+                                color: Colors.blue,
+                                thickness: 2,
+                                indent: 10,
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 15),
                         SizedBox(
                           width: 250,
@@ -169,10 +188,11 @@ class _SignupState extends State<Signup> {
                             ),
                             onPressed: () {},
                             label: Text(
-                              'Login with',
+                              'Google',
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 20,
+                                fontWeight: FontWeight.bold
                               ),
                             ),
                             icon: Image.asset(
@@ -186,7 +206,7 @@ class _SignupState extends State<Signup> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Vous n\'avez pas de compte?'),
+                            Text('Vous n\'avez pas de compte ? '),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
