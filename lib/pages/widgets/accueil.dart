@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 
 class Accueil extends StatefulWidget {
+  const Accueil({super.key});
+
   @override
   State<Accueil> createState() => _AccueilState();
 }
