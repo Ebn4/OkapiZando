@@ -131,15 +131,21 @@ class _AcceuilPageState extends State<AcceuilPage> {
                       Container(
                         width: 300,
                         height: double.infinity,
-                        color: Colors.red,
-                        child: Center(child: const Text('un')),
+
+                        child: Image.asset(
+                          'assets/images/fraise.jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       SizedBox(width: 15),
                       Container(
                         width: 300,
                         height: double.infinity,
-                        color: Colors.blue,
-                        child: Center(child: const Text('un')),
+
+                        child: Image.asset(
+                          'assets/images/fraise.jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ],
                   ),
