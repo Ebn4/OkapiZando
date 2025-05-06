@@ -14,7 +14,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Badges Example'),
+        title: Image.asset('assets/images/Okapizando.png',width: 100,height: 100,),
         actions: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
