@@ -34,7 +34,7 @@ class _SignupState extends State<Signup> {
                 children: [
                   Image.asset(
                     'assets/images/Okapizando.png',
-                    width: 400,
+                    width: 300,
                     height: 200,
                   ),
                   SizedBox(height: 5),
@@ -46,7 +46,7 @@ class _SignupState extends State<Signup> {
                       color: Colors.blue,
                     ),
                   ),
-                  SizedBox(height: 100),
+                  SizedBox(height: 20),
                   Form(
                     key: _formKey,
                     child: Column(
@@ -119,10 +119,17 @@ class _SignupState extends State<Signup> {
                               ],
                             ),
                             TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                minimumSize: Size(0,0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                visualDensity: VisualDensity.compact
+                              ),
                               onPressed: () {},
                               child: Text(
                                 'Mot de passe oublié?',
                                 style: TextStyle(color: Colors.blue),
+                                overflow: TextOverflow.ellipsis
                               ),
                             ),
                           ],
@@ -202,7 +209,7 @@ class _SignupState extends State<Signup> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

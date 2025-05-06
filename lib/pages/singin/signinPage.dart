@@ -37,13 +37,13 @@ class _SigninpageState extends State<Signinpage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/Okapizando.png', width: 400, height: 200),
+                  Image.asset('assets/images/Okapizando.png', width: 300, height: 200),
                   SizedBox(height: 5),
                   Text(
                     'Inscription',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
                   ),
-                  SizedBox(height: 100),
+                  SizedBox(height: 10),
                   Form(
                     key: _formKey,
                     child: Column(
@@ -235,6 +235,7 @@ class _SigninpageState extends State<Signinpage> {
                               ),
                           ],
                         ),
+                        SizedBox(height: 20,),
                       ],
                     ),
                   ),

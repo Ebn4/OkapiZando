@@ -3,6 +3,8 @@ import 'package:okapi_zando_mobile/pages/login/loginPage.dart';
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 
 class Singinorginup extends StatelessWidget {
+  const Singinorginup({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
