@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Okapi Zando',
       // home: Signup(),
-      home: AcceuilPage(),
+      home: Singinorginup(),
     );
   }
 }

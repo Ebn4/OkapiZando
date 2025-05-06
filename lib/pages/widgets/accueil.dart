@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
+import 'package:okapi_zando_mobile/pages/widgets/singinOrginup.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -21,7 +22,7 @@ class _AccueilState extends State<Accueil> {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Signinpage()),
+        MaterialPageRoute(builder: (context) => Singinorginup()),
       );
     });
   }
