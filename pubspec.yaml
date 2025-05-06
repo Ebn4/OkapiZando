@@ -39,6 +39,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
   get_storage: ^2.1.1
+  badges: ^3.1.2
 
 dev_dependencies:
   flutter_test:
