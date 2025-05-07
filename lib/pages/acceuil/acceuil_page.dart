@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:badges/badges.dart' as badges;
 import 'package:okapi_zando_mobile/business/models/model_produit.dart';
+import 'package:okapi_zando_mobile/business/models/model_produit_vendeur.dart';
+import 'package:okapi_zando_mobile/pages/widgets/productCard2.dart';
 import 'package:okapi_zando_mobile/pages/widgets/product_card.dart';
 
 class AcceuilPage extends StatefulWidget {
@@ -44,6 +46,44 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 5,
     ),
     Product(
+      title: 'Produit F',
+      price: 12.30,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 4,
+    ),
+  ];
+   List<Productv> productvs = [
+    Productv(
+      title: 'Produit A',
+      price: 19.99,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 4,
+    ),
+    Productv(
+      title: 'Produit B',
+      price: 29.99,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 5,
+    ),
+    Productv(
+      title: 'Produit C',
+      price: 15.00,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 3,
+    ),
+    Productv(
+      title: 'Produit D',
+      price: 9.50,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 2,
+    ),
+    Productv(
+      title: 'Produit E',
+      price: 45.00,
+      imageUrl: 'assets/images/fraise.jpg',
+      rating: 5,
+    ),
+    Productv(
       title: 'Produit F',
       price: 12.30,
       imageUrl: 'assets/images/fraise.jpg',
@@ -310,6 +350,18 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     ),
                   ],
                 ),
+                  SizedBox(height: 15),
+                 GridView.count(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.75, // ajuster ici selon le design
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  children:
+                      productvs.map((Productv) => ProductCard2(Productv)).toList(),
+                ),
+
               ],
             ),
           ),
