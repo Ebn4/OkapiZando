@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:okapi_zando_mobile/pages/acceuil/acceuil_page.dart';
+import 'package:okapi_zando_mobile/pages/widgets/accueil.dart';
 import 'package:okapi_zando_mobile/pages/widgets/singinOrginup.dart';
 
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Okapi Zando',
       // home: Signup(),
-      home: AcceuilPage(),
+      home: Accueil(),
     );
   }
 }
