@@ -64,7 +64,9 @@ class _SignupState extends State<Signup> {
                             if (value == null || value.isEmpty) {
                               return 'Veuillez entrer votre email';
                             }
-                            if (!value.contains('@')) {
+                            // La creation d'une expression regulière pour valider l'email
+                            final emailRegex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                            if (!emailRegex.hasMatch(value)) {
                               return 'Veuillez entrer un email valide';
                             }
                             return null;
