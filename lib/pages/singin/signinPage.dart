@@ -78,6 +78,11 @@ class _SigninpageState extends State<Signinpage> {
                             if (value == null || value.isEmpty) {
                               return 'Veuillez entrer votre numero de telephone';
                             }
+                            // La creation d'une expression regulière pour valider le numero de telephone
+                            final phoneRegex = RegExp(r"^\+?\d{10,15}$");
+                            if (!phoneRegex.hasMatch(value)) {
+                              return 'Veuillez entrer un numero de telephone valide';
+                            }
                             return null;
                           },
                         ),
@@ -95,7 +100,9 @@ class _SigninpageState extends State<Signinpage> {
                             if (value == null || value.isEmpty) {
                               return 'Veuillez entrer votre email';
                             }
-                            if (!value.contains('@')) {
+                            // La creation d'une expression regulière pour valider l'email
+                            final emailRegex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                            if (!emailRegex.hasMatch(value)) {
                               return 'Veuillez entrer un email valide';
                             }
                             return null;
