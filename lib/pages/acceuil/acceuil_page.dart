@@ -14,8 +14,8 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
-
   late int _currentIndex;
+
   List<Product> products = [
     Product(
       title: 'Produit A',
@@ -92,6 +92,11 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
+  @override
+  void initState() {
+    _currentIndex = 0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -174,9 +179,13 @@ class _AcceuilPageState extends State<AcceuilPage> {
                         width: 300,
                         height: double.infinity,
 
-                        child: Image.asset(
-                          'assets/images/fraise.jpg',
-                          fit: BoxFit.cover,
+                        child: Stack(
+                          children: [
+                            Image.asset(
+                              'assets/images/fraise.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(width: 15),
@@ -379,11 +388,32 @@ class _AcceuilPageState extends State<AcceuilPage> {
         },
         destinations: [
           NavigationDestination(icon: Icon(Icons.home_outlined), label: 'home'),
-          NavigationDestination(icon: Icon(Icons.search_outlined), label: 'search'),
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'home'),
-          NavigationDestination(icon: Icon(Icons.verified_user_outlined), label: 'profil'),
-                                                  NavigationDestination(icon: Icon(Icons.menu_outlined), label: 'menu'),
-        ]),
+          NavigationDestination(
+            icon: Icon(Icons.search_outlined),
+            label: 'search',
+          ),
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                print('container clické');
+              },
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.verified_user_outlined),
+            label: 'profil',
+          ),
+          NavigationDestination(icon: Icon(Icons.menu_outlined), label: 'menu'),
+        ],
+      ),
     );
   }
 }
