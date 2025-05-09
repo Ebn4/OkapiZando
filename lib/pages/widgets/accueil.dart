@@ -17,10 +17,10 @@ class _AccueilState extends State<Accueil> {
 
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
-    // Attendre 3 secondes
-    Timer(Duration(seconds: 2), () {
+
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => AcceuilPage()),
