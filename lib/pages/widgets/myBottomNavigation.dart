@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:okapi_zando_mobile/userProfile/profilePage.dart';
 
 class MybottomNavigation extends StatefulWidget {
   @override
@@ -50,9 +51,17 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
                 ),
               ),
             ),
-            NavigationDestination(
-              icon: Icon(Icons.person_2_outlined),
-              label: 'profil',
+            InkWell(
+              onTap: (){
+                debugPrint('navigation vers profil page');
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return Profilepage();
+                  }));
+              },
+              child: NavigationDestination(
+                icon: Icon(Icons.person_2_outlined),
+                label: 'profil',
+              ),
             ),
             NavigationDestination(
               icon: Icon(Icons.menu_outlined),
