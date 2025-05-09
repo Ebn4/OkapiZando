@@ -238,9 +238,18 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.amber,
                               shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(1, 3)
+                                  )
+                                ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
+
                           SizedBox(height: 10),
                           const Text('un'),
                         ],
@@ -255,6 +264,14 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.orange,
                               shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(1, 3)
+                                  )
+                                ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
@@ -272,6 +289,14 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.lightGreen,
                               shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12.withOpacity(0.2),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(1, 3)
+                                )
+                              ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
@@ -289,8 +314,16 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2), // couleur de l'ombre
+                                  spreadRadius: 2, // étalement de l'ombre
+                                  blurRadius: 5, // flou de l'ombre
+                                  offset: Offset(1, 3), // décalage horizontal et vertical
+                                ),
+                              ],
                             ),
-                            child: Icon(Icons.skip_next, size: 30),
+                            child: Icon(Icons.navigate_next, size: 30),
                           ),
                           SizedBox(height: 10),
                           const Text('un'),
