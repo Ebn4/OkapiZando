@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:okapi_zando_mobile/business/models/model_produit.dart';
 import 'package:okapi_zando_mobile/business/models/model_produit_vendeur.dart';
+import 'package:okapi_zando_mobile/pages/widgets/myBottomNavigation.dart';
 import 'package:okapi_zando_mobile/pages/widgets/productCard2.dart';
 import 'package:okapi_zando_mobile/pages/widgets/product_card.dart';
 
@@ -14,6 +15,7 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
+  
   List<Product> products = [
     Product(
       title: 'Produit A',
@@ -52,7 +54,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-   List<Productv> productvs = [
+  List<Productv> productvs = [
     Productv(
       title: 'Produit A',
       price: 19.99,
@@ -90,6 +92,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +101,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Image.asset(
-          'assets/images/Okapizando.png',
+          'assets/images/Logo OkapiZando PNG@3x.png',
           width: 100,
           height: 100,
         ),
@@ -153,7 +156,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
-                      'Latest',
+                      'Récents',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 25,
@@ -168,23 +171,39 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      Container(
-                        width: 300,
-                        height: double.infinity,
-
-                        child: Image.asset(
-                          'assets/images/fraise.jpg',
-                          fit: BoxFit.cover,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                      SizedBox(width: 15),
-                      Container(
-                        width: 300,
-                        height: double.infinity,
-
-                        child: Image.asset(
-                          'assets/images/fraise.jpg',
-                          fit: BoxFit.cover,
+                      SizedBox(width: 10),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ],
@@ -219,9 +238,18 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.amber,
                               shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(1, 3)
+                                  )
+                                ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
+
                           SizedBox(height: 10),
                           const Text('un'),
                         ],
@@ -236,6 +264,14 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.orange,
                               shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: Offset(1, 3)
+                                  )
+                                ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
@@ -253,6 +289,14 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.lightGreen,
                               shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12.withOpacity(0.2),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(1, 3)
+                                )
+                              ]
                             ),
                             child: Icon(Icons.shopping_bag, size: 30),
                           ),
@@ -270,8 +314,16 @@ class _AcceuilPageState extends State<AcceuilPage> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2), // couleur de l'ombre
+                                  spreadRadius: 2, // étalement de l'ombre
+                                  blurRadius: 5, // flou de l'ombre
+                                  offset: Offset(1, 3), // décalage horizontal et vertical
+                                ),
+                              ],
                             ),
-                            child: Icon(Icons.skip_next, size: 30),
+                            child: Icon(Icons.navigate_next, size: 30),
                           ),
                           SizedBox(height: 10),
                           const Text('un'),
@@ -350,8 +402,8 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     ),
                   ],
                 ),
-                  SizedBox(height: 15),
-                 GridView.count(
+                SizedBox(height: 15),
+                GridView.count(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75, // ajuster ici selon le design
                   crossAxisSpacing: 10,
@@ -359,14 +411,17 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   children:
-                      productvs.map((Productv) => ProductCard2(Productv)).toList(),
+                      productvs
+                          .map((Productv) => ProductCard2(Productv))
+                          .toList(),
                 ),
-
               ],
             ),
           ),
         ),
       ),
+      bottomNavigationBar: MybottomNavigation()
     );
   }
 }
+
