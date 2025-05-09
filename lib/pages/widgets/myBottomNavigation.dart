@@ -51,7 +51,7 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
               ),
             ),
             NavigationDestination(
-              icon: Icon(Icons.verified_user_outlined),
+              icon: Icon(Icons.person_2_outlined),
               label: 'profil',
             ),
             NavigationDestination(
