@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:okapi_zando_mobile/pages/acceuil/acceuil_page.dart';
+import 'package:okapi_zando_mobile/pages/acceuil/acceuilPage.dart';
 
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 import 'package:okapi_zando_mobile/pages/widgets/singinOrginup.dart';
