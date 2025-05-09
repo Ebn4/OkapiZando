@@ -14,6 +14,8 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
+  late int _currentIndex;
+  
   List<Product> products = [
     Product(
       title: 'Produit A',
@@ -52,7 +54,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-   List<Productv> productvs = [
+  List<Productv> productvs = [
     Productv(
       title: 'Produit A',
       price: 19.99,
@@ -90,6 +92,12 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
+
+  @override
+  void initState() {
+    _currentIndex = 0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -350,8 +358,8 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     ),
                   ],
                 ),
-                  SizedBox(height: 15),
-                 GridView.count(
+                SizedBox(height: 15),
+                GridView.count(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75, // ajuster ici selon le design
                   crossAxisSpacing: 10,
@@ -359,6 +367,68 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   children:
+                      productvs
+                          .map((Productv) => ProductCard2(Productv))
+                          .toList(),
+                ),
+              ],
+            ),
+          ),
+        ),
+        
+      ),
+
+      
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(height: 55),
+        child: NavigationBar(
+          elevation: 12,
+          backgroundColor: Colors.white,
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              label: 'home',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.search_outlined),
+              label: 'search',
+            ),
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  print('container clické');
+                },
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.verified_user_outlined),
+              label: 'profil',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.menu_outlined),
+              label: 'menu',
+            ),
+          ],
+        ),
+      ),
+      
+    );
+  }
+}
                       productvs.map((Productv) => ProductCard2(Productv)).toList(),
                 ),
 
