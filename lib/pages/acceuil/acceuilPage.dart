@@ -92,7 +92,6 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-
   @override
   void initState() {
     _currentIndex = 0;
@@ -351,7 +350,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     const Text(
                       'ventes',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
@@ -379,8 +378,54 @@ class _AcceuilPageState extends State<AcceuilPage> {
       ),
 
       
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(height: 55),
+        child: NavigationBar(
+          elevation: 12,
+          backgroundColor: Colors.white,
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              label: 'home',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.search_outlined),
+              label: 'search',
+            ),
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  print('container clické');
+                },
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.verified_user_outlined),
+              label: 'profil',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.menu_outlined),
+              label: 'menu',
+            ),
+          ],
+        ),
+      ),
       
     );
   }
 }
-          
+
