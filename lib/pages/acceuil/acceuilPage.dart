@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:okapi_zando_mobile/business/models/model_produit.dart';
 import 'package:okapi_zando_mobile/business/models/model_produit_vendeur.dart';
+import 'package:okapi_zando_mobile/pages/widgets/myBottomNavigation.dart';
 import 'package:okapi_zando_mobile/pages/widgets/productCard2.dart';
 import 'package:okapi_zando_mobile/pages/widgets/product_card.dart';
 
@@ -14,7 +15,6 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
-  late int _currentIndex;
   
   List<Product> products = [
     Product(
@@ -92,11 +92,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-  @override
-  void initState() {
-    _currentIndex = 0;
-    super.initState();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -378,53 +374,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       ),
 
       
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(height: 55),
-        child: NavigationBar(
-          elevation: 12,
-          backgroundColor: Colors.white,
-          selectedIndex: _currentIndex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          destinations: [
-            NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              label: 'home',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.search_outlined),
-              label: 'search',
-            ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  print('container clické');
-                },
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.verified_user_outlined),
-              label: 'profil',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.menu_outlined),
-              label: 'menu',
-            ),
-          ],
-        ),
-      ),
-      
+      bottomNavigationBar: MybottomNavigation()
     );
   }
 }
