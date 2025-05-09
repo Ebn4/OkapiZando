@@ -92,6 +92,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
+
   @override
   void initState() {
     _currentIndex = 0;
@@ -382,4 +383,14 @@ class _AcceuilPageState extends State<AcceuilPage> {
     );
   }
 }
+                      productvs.map((Productv) => ProductCard2(Productv)).toList(),
+                ),
 
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
