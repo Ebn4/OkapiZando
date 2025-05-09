@@ -14,6 +14,8 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
+  late int _currentIndex;
+  
   List<Product> products = [
     Product(
       title: 'Produit A',
@@ -52,7 +54,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-   List<Productv> productvs = [
+  List<Productv> productvs = [
     Productv(
       title: 'Produit A',
       price: 19.99,
@@ -90,6 +92,12 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
+
+  @override
+  void initState() {
+    _currentIndex = 0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -343,15 +351,15 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     const Text(
                       'ventes',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.amber,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
                 ),
-                  SizedBox(height: 15),
-                 GridView.count(
+                SizedBox(height: 15),
+                GridView.count(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75, // ajuster ici selon le design
                   crossAxisSpacing: 10,
@@ -359,14 +367,20 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   children:
-                      productvs.map((Productv) => ProductCard2(Productv)).toList(),
+                      productvs
+                          .map((Productv) => ProductCard2(Productv))
+                          .toList(),
                 ),
-
               ],
             ),
           ),
         ),
+        
       ),
+
+      
+      
     );
   }
 }
+          
