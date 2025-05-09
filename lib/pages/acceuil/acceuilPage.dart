@@ -375,11 +375,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
             ),
           ),
         ),
-        
       ),
-
-      
-      
     );
   }
 }
