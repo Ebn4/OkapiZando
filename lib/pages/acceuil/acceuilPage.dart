@@ -383,14 +383,4 @@ class _AcceuilPageState extends State<AcceuilPage> {
     );
   }
 }
-                      productvs.map((Productv) => ProductCard2(Productv)).toList(),
-                ),
-
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+          
