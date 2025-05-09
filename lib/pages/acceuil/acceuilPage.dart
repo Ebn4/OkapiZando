@@ -171,23 +171,39 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      Container(
-                        width: 300,
-                        height: double.infinity,
-
-                        child: Image.asset(
-                          'assets/images/fraise.jpg',
-                          fit: BoxFit.cover,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                      SizedBox(width: 15),
-                      Container(
-                        width: 300,
-                        height: double.infinity,
-
-                        child: Image.asset(
-                          'assets/images/fraise.jpg',
-                          fit: BoxFit.cover,
+                      SizedBox(width: 10),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10), // valeur d'arrondi
+                        child: Container(
+                          width: 300,
+                          height: double.infinity,
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ],
