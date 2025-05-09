@@ -153,7 +153,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
-                      'Latest',
+                      'Récents',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 25,
