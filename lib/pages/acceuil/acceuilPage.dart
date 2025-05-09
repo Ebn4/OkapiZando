@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:okapi_zando_mobile/business/models/model_produit.dart';
 import 'package:okapi_zando_mobile/business/models/model_produit_vendeur.dart';
+import 'package:okapi_zando_mobile/pages/widgets/myBottomNavigation.dart';
 import 'package:okapi_zando_mobile/pages/widgets/productCard2.dart';
 import 'package:okapi_zando_mobile/pages/widgets/product_card.dart';
 
@@ -14,7 +15,6 @@ class AcceuilPage extends StatefulWidget {
 }
 
 class _AcceuilPageState extends State<AcceuilPage> {
-  late int _currentIndex;
   
   List<Product> products = [
     Product(
@@ -92,12 +92,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       rating: 4,
     ),
   ];
-
-  @override
-  void initState() {
-    _currentIndex = 0;
-    super.initState();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +346,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                     const Text(
                       'ventes',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.blue,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
@@ -376,7 +371,8 @@ class _AcceuilPageState extends State<AcceuilPage> {
           ),
         ),
       ),
+      bottomNavigationBar: MybottomNavigation()
     );
   }
 }
-          
+
