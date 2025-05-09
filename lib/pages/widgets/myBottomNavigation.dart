@@ -51,17 +51,13 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
                 ),
               ),
             ),
-            InkWell(
-              onTap: (){
-                debugPrint('navigation vers profil page');
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
+            NavigationDestination(
+              icon: GestureDetector(onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
                     return Profilepage();
                   }));
-              },
-              child: NavigationDestination(
-                icon: Icon(Icons.person_2_outlined),
-                label: 'profil',
-              ),
+              }, child: Icon(Icons.person_2_outlined)),
+              label: 'profil',
             ),
             NavigationDestination(
               icon: Icon(Icons.menu_outlined),
