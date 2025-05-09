@@ -101,7 +101,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Image.asset(
-          'assets/images/Okapizando.png',
+          'assets/images/Logo OkapiZando PNG@3x.png',
           width: 100,
           height: 100,
         ),
