@@ -45,7 +45,7 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.white,
                     shape: BoxShape.circle,
                   ),
                 ),
