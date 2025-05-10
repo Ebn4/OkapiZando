@@ -38,6 +38,7 @@ class Profilepage extends StatelessWidget {
                 ),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Stack pour afficher la photo de profil avec icône d’édition
                   Stack(
