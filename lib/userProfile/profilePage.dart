@@ -1,43 +1,49 @@
 import 'package:flutter/material.dart';
 
+// Page de profil (stateless = pas de changement d'état)
 class Profilepage extends StatelessWidget {
   const Profilepage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Barre supérieure avec le titre centré
+      appBar: AppBar(
+        title: Text("Profile"),
+        centerTitle: true,
+      ),
+
+      // Corps de la page
       body: Container(
-         height: MediaQuery.of(context).size.height,
-         padding: EdgeInsets.only(bottom: 50),
+        // Prend toute la hauteur de l'écran
+        height: MediaQuery.of(context).size.height,
+        // Un peu d'espace en bas (peut être utile pour éviter le chevauchement avec la barre système)
+        padding: EdgeInsets.only(bottom: 50),
+
+        // Colonne principale de la page
         child: Column(
-           mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          // Espace les éléments verticalement (haut, milieu, bas)
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
+            // En-tête avec fond bleu et informations de profil
             Container(
               height: 300,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(70),
+                  bottomLeft: Radius.circular(70), // bord arrondi en bas à gauche
                 ),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: const Text(
-                      'Profile',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Stack pour afficher la photo de profil avec icône d’édition
                   Stack(
                     children: [
+                      // Cercle contenant l’image de profil
                       Container(
                         height: 100,
                         width: 100,
@@ -47,13 +53,15 @@ class Profilepage extends StatelessWidget {
                         ),
                         child: ClipOval(
                           child: Image.asset(
-                            'assets/images/fraise.jpg',
+                            'assets/images/fraise.jpg', // image du profil
                             fit: BoxFit.cover,
                             width: 200,
                             height: 200,
                           ),
                         ),
                       ),
+
+                      // Petit bouton d’édition en bas à droite du cercle
                       Positioned(
                         bottom: 4,
                         right: 10,
@@ -74,7 +82,10 @@ class Profilepage extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   SizedBox(height: 30),
+
+                  // Nom de l’utilisateur
                   Text(
                     'Albert forbes',
                     style: TextStyle(
@@ -82,7 +93,10 @@ class Profilepage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+
                   SizedBox(height: 5),
+
+                  // Rôle de l’utilisateur
                   Text(
                     'vendeur',
                     style: TextStyle(
@@ -91,18 +105,23 @@ class Profilepage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+
                   SizedBox(height: 60),
                 ],
               ),
             ),
+
             SizedBox(height: 20),
 
+            // Liste d’options : modifier profil, notifications, adresse, mot de passe
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
+                  // Ligne : Modifier le profil
                   Row(
                     children: [
+                      // Icône dans un cercle bleu
                       SizedBox(
                         width: 50,
                         child: Container(
@@ -118,16 +137,21 @@ class Profilepage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Texte
                       Expanded(
                         child: Text(
                           'Modifier le profil',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
+                      // Flèche de navigation
                       SizedBox(width: 30, child: Icon(Icons.navigate_next)),
                     ],
                   ),
+
                   SizedBox(height: 15),
+
+                  // Ligne : Notification
                   Row(
                     children: [
                       SizedBox(
@@ -154,7 +178,10 @@ class Profilepage extends StatelessWidget {
                       SizedBox(width: 30, child: Icon(Icons.navigate_next)),
                     ],
                   ),
+
                   SizedBox(height: 15),
+
+                  // Ligne : Adresse de livraison
                   Row(
                     children: [
                       SizedBox(
@@ -181,7 +208,10 @@ class Profilepage extends StatelessWidget {
                       SizedBox(width: 30, child: Icon(Icons.navigate_next)),
                     ],
                   ),
+
                   SizedBox(height: 15),
+
+                  // Ligne : Changer mot de passe
                   Row(
                     children: [
                       SizedBox(
@@ -213,11 +243,15 @@ class Profilepage extends StatelessWidget {
             ),
 
             SizedBox(height: 30),
+
+            // Bouton de déconnexion
             SizedBox(
               width: 300,
               height: 40,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Action à effectuer lors de la déconnexion
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
