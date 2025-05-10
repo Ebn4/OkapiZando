@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:okapi_zando_mobile/pages/acceuil/acceuilPage.dart';
 import 'package:okapi_zando_mobile/pages/widgets/accueil.dart';
-
-
-
+import 'package:okapi_zando_mobile/userProfile/profilePage.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Okapi Zando',
       // home: Signup(),
-      home: Accueil(),
+      home: AcceuilPage(),
     );
   }
 }
