@@ -100,6 +100,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false, // ❌ empêche la flèche de retour
         title: Image.asset(
           'assets/images/Logo OkapiZando PNG@3x.png',
           width: 100,
