@@ -41,6 +41,7 @@ dependencies:
   get_storage: ^2.1.1
   badges: ^3.1.2
   introduction_screen: ^3.1.17
+  circular_menu: ^4.0.0
 
 dev_dependencies:
   flutter_test:
