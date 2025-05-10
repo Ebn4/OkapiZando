@@ -40,6 +40,7 @@ dependencies:
   riverpod_annotation: ^2.6.1
   get_storage: ^2.1.1
   badges: ^3.1.2
+  introduction_screen: ^3.1.17
 
 dev_dependencies:
   flutter_test:
