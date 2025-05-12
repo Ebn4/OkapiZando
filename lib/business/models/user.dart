@@ -2,7 +2,6 @@ class User {
   int id;
   String name;
   String email;
-  String phone;
 
 
   // Le constructeur de la classe User
@@ -10,7 +9,6 @@ class User {
     required this.id,
     required this.name,
     required this.email,
-    required this.phone,
   });
  
 
@@ -20,7 +18,6 @@ class User {
       'id': id,
       'name': name,
       'email': email,
-      'phone': phone,
     };
   }
 
@@ -31,7 +28,6 @@ class User {
       id: json['id'],
       name: json['name'],
       email: json['email'],
-      phone: json['phone'],
     );
   } 
 
