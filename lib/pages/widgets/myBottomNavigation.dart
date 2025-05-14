@@ -36,21 +36,7 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
               icon: Icon(Icons.search_outlined),
               label: 'search',
             ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  print('container clické');
-                },
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-            ),
+          
             NavigationDestination(
               icon: GestureDetector(onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context){
