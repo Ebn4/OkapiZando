@@ -6,7 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class Profilecontroller extends StateNotifier<ProfileState> {
   Profilecontroller() : super(ProfileState());
 
+
+  // Méthode pour soumettre le formulaire d'authentification
   Future<bool> submitForm(Authentification data) async{
+    // on met à jour l'état pour indiquer que le chargement a commencé
     state = state.copyWith(isLoading: true);
     try {
       // Appel de la méthode AuthenticateUser
@@ -15,6 +18,8 @@ class Profilecontroller extends StateNotifier<ProfileState> {
       return true;
 
     } catch (e) {
+      // En cas d'erreur, on met à jour l'état avec le message d'erreur
+      // et on indique que le chargement est terminé
       state = state.copyWith(errorMsg: e.toString(), isLoading: false);
       return false;
     }
