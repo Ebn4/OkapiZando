@@ -18,7 +18,7 @@ class Zandonetworkserviceimpl implements ZandoNetworkService {
   // la methode AuthenticateUser permet d'authentifier un utilisateur
   // en envoyant une requete POST à l'api avec les données de l'utilisateur
   @override
-  Future<User?> AuthenticateUser(Authentification data) async {
+  Future<User?> authentificateUser(Authentification data) async {
 
     var userData = jsonEncode(data);
     var url = Uri.parse('$baseUrl/login');
@@ -53,8 +53,6 @@ class Zandonetworkserviceimpl implements ZandoNetworkService {
 void main() async {
   var service = Zandonetworkserviceimpl();
   var auth = Authentification(email: "test@gmail.com",password: "password");
-  var data = await service.AuthenticateUser(auth);
-  print(data.toString());
-
-  print("bonjour le monde");
+  var data = await service.authentificateUser(auth);
+  print(data?.name);
 }
