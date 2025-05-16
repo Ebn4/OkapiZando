@@ -1,5 +1,6 @@
 import 'dart:convert';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:okapi_zando_mobile/business/models/article.dart';
 import 'package:okapi_zando_mobile/business/models/authentification.dart';
 import 'package:okapi_zando_mobile/business/models/user.dart';
@@ -10,10 +11,10 @@ class Zandonetworkserviceimpl implements ZandoNetworkService {
   // le chargement du fichier .env qui contient l'url de l'api
   //final String baseUrl = dotenv.env['API_BASE_URL'] ?? '';
 
-  // final String baseUrl = "${dotenv.env['API_BASE_URL']}";
+  final String baseUrl = "${dotenv.env['API_BASE_URL']}";
 
   // le chargement de l'url de l'api
-  final String baseUrl = "http://127.0.0.1:8000/api";
+  // final String baseUrl = "http://127.0.0.1:8000/api";
 
   // la methode AuthenticateUser permet d'authentifier un utilisateur
   // en envoyant une requete POST à l'api avec les données de l'utilisateur
