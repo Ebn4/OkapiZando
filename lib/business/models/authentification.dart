@@ -7,12 +7,17 @@ class Authentification {
         this.password,
     });
 
-    Authentification copyWith({
-        String? email,
-        String? password,
-    }) => 
-        Authentification(
-            email: email ?? this.email,
-            password: password ?? this.password,
+    factory Authentification.fromJson(Map<String, dynamic> json) {
+        return Authentification(
+            email: json['email'],
+            password: json['password'],
         );
+    }
+
+    Map<String,dynamic> toJson(){
+        return {
+            "email" : email,
+            "password" : password
+        };
+    }
 }
