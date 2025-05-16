@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:okapi_zando_mobile/business/models/model_produit.dart';
 import 'package:okapi_zando_mobile/business/models/model_produit_vendeur.dart';
+import 'package:okapi_zando_mobile/pages/detailProduit/detailProduitPage.dart';
 import 'package:okapi_zando_mobile/pages/widgets/myBottomNavigation.dart';
 import 'package:okapi_zando_mobile/pages/widgets/productCard2.dart';
 import 'package:okapi_zando_mobile/pages/widgets/product_card.dart';
@@ -398,7 +399,11 @@ class _AcceuilPageState extends State<AcceuilPage> {
                         physics: NeverScrollableScrollPhysics(),
                         children:
                             products
-                                .map((product) => ProductCard(product))
+                                .map((product) => GestureDetector( onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    return Detailproduitpage();
+                                  }));
+                                },child: ProductCard(product)))
                                 .toList(),
                       ),
 
