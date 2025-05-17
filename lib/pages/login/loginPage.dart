@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:okapi_zando_mobile/business/models/authentification.dart';
+import 'package:okapi_zando_mobile/pages/login/loginController.dart';
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 
-class Signup extends StatefulWidget {
+class Signup extends ConsumerStatefulWidget {
   const Signup({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  ConsumerState<Signup> createState() => _SignupState();
 }
 
-class _SignupState extends State<Signup> {
+class _SignupState extends ConsumerState<Signup> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
@@ -19,6 +22,7 @@ class _SignupState extends State<Signup> {
   bool valeur = false;
   @override
   Widget build(BuildContext context) {
+    var state = ref.read(loginProvider);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -65,7 +69,9 @@ class _SignupState extends State<Signup> {
                               return 'Veuillez entrer votre email';
                             }
                             // La creation d'une expression regulière pour valider l'email
-                            final emailRegex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                            final emailRegex = RegExp(
+                              r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$",
+                            );
                             if (!emailRegex.hasMatch(value)) {
                               return 'Veuillez entrer un email valide';
                             }
@@ -80,18 +86,22 @@ class _SignupState extends State<Signup> {
                           decoration: InputDecoration(
                             labelText: 'Mot de passe',
                             suffixIcon: IconButton(
-                              onPressed: (){
+                              onPressed: () {
                                 setState(() {
                                   _obscureText = !_obscureText;
                                 });
                               },
-                              icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                              icon: Icon(
+                                _obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          
+
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Veuillez entrer votre mot de passe';
@@ -123,15 +133,15 @@ class _SignupState extends State<Signup> {
                             TextButton(
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
-                                minimumSize: Size(0,0),
+                                minimumSize: Size(0, 0),
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                visualDensity: VisualDensity.compact
+                                visualDensity: VisualDensity.compact,
                               ),
                               onPressed: () {},
                               child: Text(
                                 'Mot de passe oublié?',
                                 style: TextStyle(color: Colors.blue),
-                                overflow: TextOverflow.ellipsis
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
@@ -140,6 +150,7 @@ class _SignupState extends State<Signup> {
                         SizedBox(
                           width: 300,
                           height: 55,
+                          // Le bouton de connexion
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -147,10 +158,22 @@ class _SignupState extends State<Signup> {
                               ),
                               backgroundColor: Colors.blue,
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                print('Nom: ${_emailController.text}');
-                                print('Email: ${_passwordController.text}');
+                                
+                                var ctrl = ref.read(loginProvider.notifier);
+                                var data = Authentification(
+                                  email: _emailController.text,
+                                  password: _passwordController.text,
+                                );
+                                _emailController.clear();
+                                _passwordController.clear();
+                                var res = await ctrl.submitForm(data);
+                                if (res) {
+                                  print("ok");
+                                } else {
+                                  print("pas bon");
+                                }
                               }
                             },
                             child: Text(
@@ -166,7 +189,7 @@ class _SignupState extends State<Signup> {
                         SizedBox(height: 15),
                         // La barre de séparation
                         Row(
-                          children: <Widget> [
+                          children: <Widget>[
                             Expanded(
                               child: Divider(
                                 color: Colors.blue,
@@ -174,7 +197,10 @@ class _SignupState extends State<Signup> {
                                 endIndent: 10,
                               ),
                             ),
-                            Text("Ou se connecter avec",style: TextStyle(fontSize: 16),),
+                            Text(
+                              "Ou se connecter avec",
+                              style: TextStyle(fontSize: 16),
+                            ),
                             Expanded(
                               child: Divider(
                                 color: Colors.blue,
@@ -201,7 +227,7 @@ class _SignupState extends State<Signup> {
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             icon: Image.asset(
