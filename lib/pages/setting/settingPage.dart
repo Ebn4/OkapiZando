@@ -11,6 +11,7 @@ class _SettingpageState extends State<Settingpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Padding(
@@ -29,131 +30,319 @@ class _SettingpageState extends State<Settingpage> {
               ),
               SizedBox(height: 5),
               Card(
-                elevation: 15,
+                color: Colors.white,
+
+                elevation: 8,
                 child: SizedBox(
                   width: 400,
                   height: 300,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(Icons.accessibility_new_rounded),
-                          Text('shipping adress'),
-                          Container(
-                            height: 25,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
                             ),
-                            child: Center(child: Icon(Icons.navigate_next)),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(Icons.accessibility_new_rounded),
-                          SizedBox(width: 50, child: Text('shipping adress')),
-                          Container(
-                            height: 25,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
                             ),
-                            child: Center(child: Icon(Icons.navigate_next)),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: 25,
-                            child: Icon(Icons.accessibility_new_rounded),
-                          ),
-                          SizedBox(width: 50, child: Text('shipping adress')),
-                          Container(
-                            height: 25,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                               color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
                             ),
-                            child: Center(child: Icon(Icons.navigate_next)),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
+                        Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                       Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                        Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adressjbjbjbjb'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                        Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                       Divider(color:Colors.black),
                     ],
                   ),
                 ),
               ),
-              Card(
-                elevation: 15,
+             Card(
+                color: Colors.white,
+
+                elevation: 8,
                 child: SizedBox(
                   width: 400,
                   height: 300,
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Row(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(Icons.accessibility_new_rounded),
-                            SizedBox(width: 150, child: Text('shipping adress')),
-                            Expanded(
-                              flex: 4,
-                              child: Container(
-                                height: 25,// height of the container
-                                width: 25,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.grey,
-                                ),
-                                child: Center(child: Icon(Icons.navigate_next)),
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
                               ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(Icons.accessibility_new_rounded),
-                            Text('shipping adress'),
                             Container(
                               height: 25,
                               width: 25,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Colors.grey,
+                                color: const Color.fromARGB(255, 206, 205, 205),
                               ),
                               child: Center(child: Icon(Icons.navigate_next)),
                             ),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      ),
+                       Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(Icons.accessibility_new_rounded),
-                            Text('shipping adress'),
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
                             Container(
                               height: 25,
                               width: 25,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Colors.grey,
+                               color: const Color.fromARGB(255, 206, 205, 205),
                               ),
                               child: Center(child: Icon(Icons.navigate_next)),
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                        Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                               color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(color:Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adressjbjbjbjb'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                               color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(color: Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                              child: Icon(Icons.accessibility_new_rounded),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: SizedBox(
+                                width: 220,
+                                child: Text('shipping adress'),
+                              ),
+                            ),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color.fromARGB(255, 206, 205, 205),
+                              ),
+                              child: Center(child: Icon(Icons.navigate_next)),
+                            ),
+                          ],
+                        ),
+                      ),
+                             ],
                   ),
                 ),
               ),
