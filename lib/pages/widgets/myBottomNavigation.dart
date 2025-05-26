@@ -46,8 +46,8 @@ class _MybottomNavigationState extends State<MybottomNavigation> {
               label: 'profil',
             ),
             NavigationDestination(
-              icon: Icon(Icons.menu_outlined),
-              label: 'menu',
+              icon: Icon(Icons.settings),
+              label: 'setting',
             ),
           ],
         ),
