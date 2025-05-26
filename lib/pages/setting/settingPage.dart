@@ -1,355 +1,158 @@
 import 'package:flutter/material.dart';
+import 'package:okapi_zando_mobile/pages/userProfile/profilePage.dart';
 
-class Settingpage extends StatefulWidget {
-  const Settingpage({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
   @override
-  State<Settingpage> createState() => _SettingpageState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingpageState extends State<Settingpage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Settings',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(height: 5),
-              Card(
-                color: Colors.white,
+class _SettingsPageState extends State<SettingsPage> {
+  bool _isDarkMode = false;
+  String _selectedLanguage = "Français";
 
-                elevation: 8,
-                child: SizedBox(
-                  width: 400,
-                  height: 300,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                               color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                        Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                       Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                        Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adressjbjbjbjb'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                        Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                       Divider(color:Colors.black),
-                    ],
-                  ),
+  void _changeLanguage() {
+    showDialog(
+      context: context,
+      builder:
+          (_) => AlertDialog(
+            title: const Text("Choisir la langue"),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: const Text("Français"),
+                  onTap: () {
+                    setState(() {
+                      _selectedLanguage = "Français";
+                    });
+                    Navigator.pop(context);
+                  },
                 ),
-              ),
-             Card(
-                color: Colors.white,
+                ListTile(
+                  title: const Text("English"),
+                  onTap: () {
+                    setState(() {
+                      _selectedLanguage = "English";
+                    });
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
+    );
+  }
 
-                elevation: 8,
-                child: SizedBox(
-                  width: 400,
-                  height: 300,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                       Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                               color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                        Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                               color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(color:Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adressjbjbjbjb'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                               color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(color: Colors.black),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                              child: Icon(Icons.accessibility_new_rounded),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: SizedBox(
-                                width: 220,
-                                child: Text('shipping adress'),
-                              ),
-                            ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color.fromARGB(255, 206, 205, 205),
-                              ),
-                              child: Center(child: Icon(Icons.navigate_next)),
-                            ),
-                          ],
-                        ),
-                      ),
-                             ],
-                  ),
-                ),
+  void _confirmLogout() {
+    showDialog(
+      context: context,
+      builder:
+          (_) => AlertDialog(
+            title: const Text("Déconnexion"),
+            content: const Text("Êtes-vous sûr de vouloir vous déconnecter ?"),
+            actions: [
+              TextButton(
+                child: const Text("Annuler"),
+                onPressed: () => Navigator.pop(context),
+              ),
+              ElevatedButton(
+                child: const Text("Déconnexion"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Ajouter ici la logique de déconnexion
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text("Déconnecté")));
+                },
               ),
             ],
           ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Paramètres")),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // Premier Card : Informations utilisateur
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ClipRRect(
+                          child: Image.asset(
+                            'assets/images/fraise.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            // Deuxième Card : Préférences et actions
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                children: [
+                  SwitchListTile(
+                    secondary: const Icon(Icons.dark_mode),
+                    title: const Text("Mode sombre"),
+                    value: _isDarkMode,
+                    onChanged: (val) {
+                      setState(() {
+                        _isDarkMode = val;
+                      });
+                      // Logique pour changer le thème ici
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.language),
+                    title: const Text("Langue"),
+                    subtitle: Text(_selectedLanguage),
+                    onTap: _changeLanguage,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.help),
+                    title: const Text("Aide & support"),
+                    onTap: () {
+                      // Naviguer vers la page d'aide
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.logout),
+                    title: const Text("Déconnexion"),
+                    onTap: _confirmLogout,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+// Exemple simple de page de profil
