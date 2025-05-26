@@ -4,6 +4,7 @@ import 'package:okapi_zando_mobile/framework/zandoNetworkServiceImpl.dart';
 import 'package:okapi_zando_mobile/pages/acceuil/acceuilPage.dart';
 import 'package:okapi_zando_mobile/pages/detailProduit/detailProduitPage.dart';
 import 'package:okapi_zando_mobile/pages/login/loginPage.dart';
+import 'package:okapi_zando_mobile/pages/setting/settingPage.dart';
 import 'package:okapi_zando_mobile/pages/singin/signinPage.dart';
 import 'package:okapi_zando_mobile/pages/widgets/accueil.dart';
 import 'package:okapi_zando_mobile/pages/widgets/introductionPage.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Okapi Zando',
       // home: Signup(),
-      home: Signup(),
+      home: SettingsPage(),
     );
   }
 }

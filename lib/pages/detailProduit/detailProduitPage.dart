@@ -10,6 +10,7 @@ class Detailproduitpage extends StatefulWidget {
 
 class _DetailproduitpageState extends State<Detailproduitpage> {
   bool isFavorite = false;
+  int detailProduitIncrement = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,11 +127,18 @@ class _DetailproduitpageState extends State<Detailproduitpage> {
                                       width: 15,
                                       color: Colors.grey,
                                       child: Center(
-                                        child: Text(
-                                          '-',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
+                                        child: GestureDetector(
+                                          onTap: (){
+                                            setState(() {
+                                              detailProduitIncrement --;
+                                            });
+                                          },
+                                          child: Text(
+                                            '-',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -143,7 +151,7 @@ class _DetailproduitpageState extends State<Detailproduitpage> {
                                       color: Colors.white,
                                       child: Center(
                                         child: Text(
-                                          '0',
+                                          detailProduitIncrement.toString(),
                                           style: TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
@@ -158,11 +166,18 @@ class _DetailproduitpageState extends State<Detailproduitpage> {
                                       width: 15,
                                       color: Colors.blue,
                                       child: Center(
-                                        child: Text(
-                                          '+',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
+                                        child: GestureDetector(
+                                          onTap: (){
+                                            setState(() {
+                                              detailProduitIncrement ++;
+                                            });
+                                          },
+                                          child: Text(
+                                            '+',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ),
