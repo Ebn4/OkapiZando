@@ -67,7 +67,7 @@ class Zandonetworkserviceimpl implements ZandoNetworkService {
   }
 
   @override
-  Future<void> registerUser(Register data) async {
+  Future<User> registerUser(Register data) async {
     var url = Uri.parse('$baseUrl/register');
     var userData = jsonEncode(data);
     var response = await http.post(
@@ -81,6 +81,7 @@ class Zandonetworkserviceimpl implements ZandoNetworkService {
     if (response.statusCode == 201) {
       var resultat = jsonDecode(response.body) as Map;
       print("User registered successfully: ${resultat['message']}");
+      return User.fromJson(resultat["data"]);
     } else {
       var error = jsonDecode(response.body) as Map;
       throw Exception("Failed to register user: ${error['error']}");
