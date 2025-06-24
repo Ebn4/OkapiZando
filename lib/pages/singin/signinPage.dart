@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:okapi_zando_mobile/business/models/register.dart';
 import 'package:okapi_zando_mobile/pages/login/loginPage.dart';
+import 'package:okapi_zando_mobile/pages/singin/signinController.dart';
 
-class Signinpage extends StatefulWidget {
+class Signinpage extends ConsumerStatefulWidget {
   const Signinpage({super.key});
 
   @override
-  State<Signinpage> createState() => _SigninpageState();
+  ConsumerState<Signinpage> createState() => _SigninpageState();
 }
 
-class _SigninpageState extends State<Signinpage> {
+class _SigninpageState extends ConsumerState<Signinpage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -19,11 +22,13 @@ class _SigninpageState extends State<Signinpage> {
   // Le champ de mot de passe est masqué par défaut
   bool _obscurePassword = true;
 
-
-
   bool valeur = false;
   @override
   Widget build(BuildContext context) {
+    // On utilise le provider pour recuperer l'etat de la page de d'inscription
+    // On utilise ConsumerState pour acceder au provider
+    var state = ref.watch(signinProvider);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -37,11 +42,19 @@ class _SigninpageState extends State<Signinpage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/Okapizando.png', width: 300, height: 200),
+                  Image.asset(
+                    'assets/images/Okapizando.png',
+                    width: 300,
+                    height: 200,
+                  ),
                   SizedBox(height: 5),
                   Text(
                     'Inscription',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.blue),
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
                   ),
                   SizedBox(height: 10),
                   Form(
@@ -63,7 +76,7 @@ class _SigninpageState extends State<Signinpage> {
                             return null;
                           },
                         ),
-          
+
                         SizedBox(height: 16),
                         TextFormField(
                           controller: _phoneNumber,
@@ -101,14 +114,16 @@ class _SigninpageState extends State<Signinpage> {
                               return 'Veuillez entrer votre email';
                             }
                             // La creation d'une expression regulière pour valider l'email
-                            final emailRegex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                            final emailRegex = RegExp(
+                              r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$",
+                            );
                             if (!emailRegex.hasMatch(value)) {
                               return 'Veuillez entrer un email valide';
                             }
                             return null;
                           },
                         ),
-                        SizedBox(height: 16,),
+                        SizedBox(height: 16),
                         TextFormField(
                           obscureText: _obscurePassword,
                           controller: _passwordController,
@@ -119,7 +134,11 @@ class _SigninpageState extends State<Signinpage> {
                                   _obscurePassword = !_obscurePassword;
                                 });
                               },
-                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility,),
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
                             ),
                             labelText: 'Mot de passe',
                             border: OutlineInputBorder(
@@ -134,7 +153,7 @@ class _SigninpageState extends State<Signinpage> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 16,),
+                        SizedBox(height: 16),
                         TextFormField(
                           obscureText: _obscurePassword,
                           controller: _confirmPasswordController,
@@ -145,7 +164,11 @@ class _SigninpageState extends State<Signinpage> {
                                   _obscurePassword = !_obscurePassword;
                                 });
                               },
-                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility,),
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
                             ),
                             labelText: 'Confirmation de mot de passe',
                             border: OutlineInputBorder(
@@ -160,32 +183,49 @@ class _SigninpageState extends State<Signinpage> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 30),
                         SizedBox(
                           width: 300,
                           height: 55,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               backgroundColor: Colors.blue,
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                print('Nom: ${_nameController.text}');
-                                print('Email: ${_emailController.text}');
+                                var ctrl = ref.read(signinProvider.notifier);
+                                var registerData = Register(
+                                  name: _nameController.text,
+                                  email: _emailController.text,
+                                  password: _passwordController.text,
+                                  confirmPassword:
+                                      _confirmPasswordController.text,
+                                  phoneNumber: _phoneNumber.text,
+                                );
+                                var result = await ctrl.submitForm(registerData);
+                                if(result){
+                                  print("Inscription réussie");
+                                }else{
+                                  print("Echec de l'inscription");
+                                }
                               }
                             },
                             child: Text(
                               'S\'inscrire',
-                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: 15),
                         Row(
-                          children: <Widget> [
+                          children: <Widget>[
                             Expanded(
                               child: Divider(
                                 color: Colors.blue,
@@ -193,7 +233,10 @@ class _SigninpageState extends State<Signinpage> {
                                 endIndent: 10,
                               ),
                             ),
-                            Text("Ou s'inscrire avec",style: TextStyle(fontSize: 16),),
+                            Text(
+                              "Ou s'inscrire avec",
+                              style: TextStyle(fontSize: 16),
+                            ),
                             Expanded(
                               child: Divider(
                                 color: Colors.blue,
@@ -212,15 +255,16 @@ class _SigninpageState extends State<Signinpage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              side: BorderSide(
-                                color: Colors.blue,
-                                width: 3,
-                              ),
+                              side: BorderSide(color: Colors.blue, width: 3),
                             ),
                             onPressed: () {},
                             label: Text(
                               'Google',
-                              style: TextStyle(color: Colors.blue,fontSize: 20,fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             icon: Image.asset(
                               'assets/images/icons8-google-48.png',
@@ -229,20 +273,28 @@ class _SigninpageState extends State<Signinpage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              Text('Vous avez déjà un compte ? '),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
-                                },
-                                child: Text('Se connecter',style: TextStyle(color: Colors.blue),)
+                            Text('Vous avez déjà un compte ? '),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Signup(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Se connecter',
+                                style: TextStyle(color: Colors.blue),
                               ),
+                            ),
                           ],
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 20),
                       ],
                     ),
                   ),

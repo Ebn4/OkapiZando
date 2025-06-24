@@ -1,12 +1,14 @@
 class Register {
   final String name;
   final String email;
+  final String phoneNumber;
   final String password;
   final String confirmPassword;
 
   Register({
     required this.name,
     required this.email,
+    required this.phoneNumber,
     required this.password,
     required this.confirmPassword,
   });
@@ -15,6 +17,7 @@ class Register {
     return Register(
       name: json['name'] as String,
       email: json['email'] as String,
+      phoneNumber: json['phoneNumber'] as String,
       password: json['password'] as String,
       confirmPassword: json['confirmPassword'] as String,
     );
@@ -24,6 +27,7 @@ class Register {
     return {
       'name': name,
       'email': email,
+      'phoneNumber': phoneNumber,
       'password': password,
       'confirmPassword': confirmPassword,
     };
