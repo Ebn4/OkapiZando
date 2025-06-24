@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:get_storage/get_storage.dart';
 import 'package:okapi_zando_mobile/business/models/user.dart';
 import 'package:okapi_zando_mobile/business/service/zandoLocalService.dart';
@@ -25,9 +27,10 @@ class ZandoLocalServiceImpl implements ZandoLocalService {
   }
 
   @override
-  Future<void> sauvegarderUser(User user) {
-    // TODO: implement sauvegarderUser
-    throw UnimplementedError();
+  Future<void> sauvegarderUser(User user) async{
+    var data = user.toJson();
+    // Sauvegarde de l'utilisateur dans le stockage local
+    await box.write('user', jsonEncode(data));
   }
 
   @override
