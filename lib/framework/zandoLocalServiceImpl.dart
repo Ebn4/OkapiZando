@@ -34,8 +34,8 @@ class ZandoLocalServiceImpl implements ZandoLocalService {
   }
 
   @override
-  Future<void> supprimerUser() {
-    // TODO: implement supprimerUser
-    throw UnimplementedError();
+  Future<void> supprimerUser() async{
+    // Suppression de l'utilisateur du stockage local
+    await box.remove('user');
   }
 }
