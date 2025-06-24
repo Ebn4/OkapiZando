@@ -9,5 +9,5 @@ abstract class ZandoNetworkService {
   // la methode pour l'inscription
   // elle prend en parametre un objet Register
   // et retourne un Future<void> pour indiquer que l'inscription est asynchrone
-  Future<void> registerUser(Register data);
+  Future<User>? registerUser(Register data);
 }
